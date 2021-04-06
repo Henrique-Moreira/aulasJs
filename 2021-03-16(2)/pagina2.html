@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    vet = [1, 2, 3, 4, 5, 6, 7, 8];
+    // Imprimir todos os elementos do vetor atendendo o sequinte requisito:
+    // Numeros pares serão duplicados
+    // Numeros impares serão triplicados
+   // vet.forEach((valor,indice) => (valor%2==0)?console.log(`Indice[${indice}] de valor ${valor*2}`): console.log(`Indice[${indice}] de valor ${valor*3}`));
+
+    //Array.map
+    //novoVet = vet.map(duplicar)
+    // function duplicar(valor) {
+    //    return valor * 2;
+    // }
+   // novoVet = vet.map((valor) => valor*32); //Array
+        
+    //Array.filter
+    // Pessoas que tem o nome com mais de 7 letras
+    // nomes = []
+    // let n = prompt("Qual a quantidade de nomes ?")
+    // for(let i = 0; i<n;i++) {
+    //     nomes.push(prompt("nome de numero "+ (i+1)));
+
+    //     nomesMaisDe7Letras = nomes.filter(maisDe7Letras) 
+    // }
+    // function maisDe7Letras(nome) {
+    //     return nome.length > 7;
+    // }
+
+    //Array.reduce
+    // resultado = vet.reduce(somar)
+    // function somar(total, valor) {
+    //     return total + valor;
+    // }
+    // console.log(resultado);
+    resultado = vet.reduce((total, valor) => total + valor);
+    console.log(resultado);
+
+</script>
+</html>

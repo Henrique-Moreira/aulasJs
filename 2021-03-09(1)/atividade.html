@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // Entrada: número inteiro X
+    // Saida: se par x*2. se impar x*3
+    function mudar(x) {
+        return (x%2 == 0)? x*2 : x*3; 
+    }
+    console.log(`Resultado declarativa = ${mudar(10)}`)
+
+    //Função Literal
+    let literal = function mudar(x) {
+        return (x%2 == 0)? x*2 : x*3; 
+    }
+    console.log(`Resultado literal = ${literal(30)}`)
+
+    //Função anônima
+    let anonima = function (x) {
+        return (x%2 == 0)? x*2 : x*3; 
+    }
+    console.log(`Resultado anonima = ${anonima(40)}`)
+
+    let f_arrow = (a, b) => a + b; // se tiver somente uma instrução
+    //Arrow Function
+    let arrow =  (x) =>(x%2 == 0)? x*2 : x*3;
+    console.log(`Resultado arrow = ${arrow(50)}`)
+
+
+    //Estudar os metodos do slide 11 e atividade 2
+</script>
+</html>

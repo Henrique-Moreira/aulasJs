@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Função declarativa
+        function somar(a, b) {
+            return a + b;
+        }
+        console.log(somar(10, 20));
+
+        // Função literal
+        let f_literal = function somar(a, b) {
+            return a + b;
+        }
+        console.log(f_literal(20, 30));
+
+        // Função anônima
+        let f_anonima = function (a, b) {
+            return a + b;
+        }
+        console.log(f_anonima(40, 40));
+
+        // Função de seta(arrow function)
+        let f_arrow = (a, b) => a + b; // se tiver somente uma instrução
+
+        console.log(f_arrow(50));
+    </script>
+</body>
+
+</html>

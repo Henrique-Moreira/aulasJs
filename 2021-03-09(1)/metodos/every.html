@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    //5. Array.every(): testa se todos os elementos do Array passam pelo teste estabelecido.
+    // retorna um valor booleano
+    var numbers1 = [45, 4, 9, 16, 25];
+    var allOver18 = numbers1.every(myFunction);
+
+    function myFunction(value) {
+        return value > 18;
+    }
+    let myFunction = (value) => value > 18;
+    
+
+    //Solicitar N idades e verificar se todas as idades fornecidas são maiores de idade. 
+    //Ex: Entrada: [18,20,30,44,58,69]. Saída: true
+
+    idades = []
+    let n = prompt("Qual a quantidade de idades ?")
+    for(let i = 0; i<n;i++) {
+        idades.push(prompt("Idade da "+ (i+1) + "ª pessoa"));
+
+    }
+    idades = idades.every(testaIdades)  
+    function testaIdades(idade) {
+        return idade >= 18;
+    }
+    idades? alert("Todos são de maior!"): alert("Algum(s) não são de maior!")
+</script>
+</html>

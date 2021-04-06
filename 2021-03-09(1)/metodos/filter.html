@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    //3. Array.filter(): filtra elementos de um Array a partir de uma condição
+    var numbers = [45, 4, 9, 16, 25]
+    var over18 = numbers.filter(myFunction);
+
+    function myFunction(value) {
+        return value > 18;
+    }
+
+    //Solicitar N números e retornar apenas os pares positivos. 
+    //Ex: Entrada: [10,-2,3,4,5,-6]. Saída: [4,10]
+    numeros = []
+    let n = prompt("Qual a quantidade de numeros ?")
+    for(let i = 0; i<n;i++) {
+        numeros.push(prompt("Numero "+ (i+1)));
+
+        numeros = numeros.filter(paresPositivos) 
+    }
+    function paresPositivos(numero) {
+        return ((numero > 0) && (numero%2==0));
+    }
+</script>
+</html>

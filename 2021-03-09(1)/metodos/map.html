@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    //2. Array.map(): realiza uma operação sobre cada elemento do vetor
+    // Cria um novo vetor a partir das operações do vetor usado
+    var numbers1 = [45, 4, 9, 16, 25]
+    var numbers2 = numbers1.map(myFunction)
+    function myFunction(value) {
+    return value * 2
+    }
+
+
+    // Solicitar N números e para os números pares dobrar o valor e para os ímpares triplicar 
+    //o valor. Ex: Entrada: [1,2,3,4,5,6]. Saída: [3,4,9,8,15,12]
+    numeros = []
+    let n = prompt("Digite a quantidade de numeros:")
+    for (let i = 0; i<n; i++) 
+        numeros.push(prompt("Número "+(i+1)));
+        
+        numeros = numeros.map(multiplicar);
+        document.write(numeros);
+    
+                function multiplicar(elemento) {
+            return ((elemento%2)==0)?elemento*2:elemento*3;
+        }
+</script>
+
+
+</html>
