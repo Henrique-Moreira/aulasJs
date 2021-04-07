@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery</title>
+    <title>Ocultar todos os paragrafos</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-    <p>Wello World!!!</p>
-    <button>Desapareça o texto</button>
+    <h1>Ocultar todos os paragrafos</h1>
+    <!-- p*3{Eu sou o parágrafo $}  -->
+    <p>Eu sou o paragrafo 1</p>
+    <p>Eu sou o paragrafo 2</p>
+    <p>Eu sou o paragrafo 3</p>
+    <button>Ocultar todos os parágrafos</button>
+    </body>
     <script>
-    //Opção 1 para testar se o dcoumento foi carregado
-    // $(document).ready(function() {
-    //Opção 2 para testar se o dcoumento foi carregado
-    $(function() {
-
-    // Sintaxe do jQuery:  
-    // $(seletor).acao()
-
-    $("button").click(() => $("p").hide());
-});
+    $(document).ready(function() {
+        $("button").click(() => $("p").hide());
+    })
     </script>
-</body>
 </html>
