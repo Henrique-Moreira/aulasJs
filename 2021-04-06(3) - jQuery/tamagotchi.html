@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tamagotchi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .config {
+            font-size: 30px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <img src="img/pensativo.png" alt="">
+    <p id="msg">zzzzz!!!</p>
+</body>
+    <script>
+    $(document).ready(function() {
+        $("img").on({
+            mouseover: function() {
+                $(this).attr("src", "img/alegre.png");
+                $("#msg").html("Seja bem-vindo!");
+                $("#msg").css("background-color", "yellow");
+            },
+            mouseout: function() {
+                $(this).attr("src", "img/pensativo.png");
+                $("#msg").html("Até mais tarde!");
+                $("#msg").css({"background-color": "red", "color": "white"});
+            },
+            click: function() {
+                $(this).attr("src", "img/assustado.png");
+                $("#msg").html("O que você precisa?");
+                $("#msg").removeAttr("style");
+                $("#msg").addClass("config");
+            }
+        });   
+     });
+
+        // $("img").mouseover(function() {
+        //     $(this).attr("src", "img/alegre.png");
+        // });
+        // $("img").mouseout(function() {
+        //     $(this).attr("src", "img/pensativo.png");
+        // });
+        // $("img").click(function() {
+        //     $(this).attr("src", "img/assustado.png");
+        // });
+    </script>
+</html>
