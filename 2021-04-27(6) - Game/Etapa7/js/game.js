@@ -2,13 +2,44 @@ const $levels = { "easy": 3, "medium": 5, "hard": 7 };
 const $imgWidth = 100;  // largura da toupeira
 const $imgHeight = 80;  // altura da toupeira
 const $imgsTheme = {"defaut": "buraco.gif", "active":"toupeira.gif", "dead":"morreu.gif"}
+var $inicialTime = 10;
+var $timeGame = $inicialTime; // Tempo de jogabilidade independente da fase
+var $idChronoGame; // Ira controlar o setInterval do cronometro
+var $idChronoStartGame; // Ira controlar o setInterval do jogo
 
 $(document).ready(function () {
-    fillBoard(); // Melhorar: trocar apenas a toupeira do tabuleiro pelo 
+    fillBoard(); // Melhorar
+    $("#chrono").text($inicialTime);
     $("#btnPlay").click(function () {
-        setInterval(startGame, 1180);
+        btnCtrl();
+        $idChronoStartGame = setInterval(startGame, 1180);
+        $idChronoGame = setInterval(startChronoGame, 1000);
     });
+    $("#btnPause").click(function(){});
+    $("#btnStop").click(function(){});
+    $("#btnExit").click(function(){});
 });
+
+function startChronoGame() {
+    let $secondsFormat = (--$timeGame).toLocaleString("pt-br", {minimumIntegerDigits: 2});
+    ($timeGame >= 0)?$("#chrono").text($secondsFormat):endGame();
+}
+
+function endGame() {
+    clearInterval($idChronoGame);
+    clearInterval($idChronoStartGame);
+    alertWifi(`Fim de Jogo. Sua pontuação foi = ${$("#score").text()}`, false, 0, `img/${$imgsTheme.dead}`, "50");
+    fillBoard();
+    $("#score").text("0");
+    $timeGame = $inicialTime;
+    $("#score").text($timeGame);
+}
+
+function btnCtrl() {
+    $("#btnPause").prop('disabled', false);
+    $("#btnStop").prop('disabled', false);
+    $("#btnExit").prop('disabled', true);
+}
 
 // cria a moldura do tabuleiro do jogo conforme o nível de dificuldade
 function fillBoard() {
@@ -35,9 +66,9 @@ function startGame() {
    // fillBoard();
     $level = getLevel();
     $randNumber = getRandNumber(1, Math.pow($level, 2));
-    $(`#mole_${$randNumber}`).attr("src", "img/toupeira.gif");
+    $(`#mole_${$randNumber}`).attr("src", `img/${$imgsTheme.active}`);
     setTimeout(() => { //implementado
-        $(`#mole_${$randNumber}`).attr("src", "img/buraco.gif")
+        $(`#mole_${$randNumber}`).attr("src", `img/${$imgsTheme.defaut}`)
     }, 1000);
 }
 
