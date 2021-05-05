@@ -1,0 +1,8 @@
+1) O que são promises em JavaScript?
+R: São objetos que ligam com requisições assincronas(não existe sincronismo), permitindo a associação de métodos de tratamentos da ação assincrona num caso de sucesso ou falha, fazendo assim com que os métodos assíncronos retornem valores como métodos síncronos. Ao em vez de retornar um valor final os métodos assíncronos retornam uma promise. Permite também que a gente rode duas partes do script de forma simultanea.
+
+2) Quais são as vantagens em se utilizar promises em JavaScript?
+R: O código final fica mais legível, melhor tratamento de erros, acoplamento reduzido e melhor definição do fluxo de controle da lógica assíncrona, já que antes das promisses o código do javascript era lido sempre de forma síncrona, de cima para baixo.
+
+3) Em qual versão do EcmaScript (ano) as promises passaram estar disponíveis?
+R: A partir do ECMAScript 2015(ES6).
