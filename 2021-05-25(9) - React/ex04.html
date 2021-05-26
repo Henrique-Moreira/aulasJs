@@ -10,24 +10,24 @@
 
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <title>Document</title>
+    <title>Exercicio 1</title>
+    <style>
+        .title {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
     <div id="root"></div>
 
     <script type="text/babel">
-        // o jsx cria elementos react, como ele nao é interpretado pelo navegador, o babel faz essa interpretacao
-        // const nome = prompt("Qual seu nome?")
-        // const element = <h1>Hello {nome}!</h1>;
 
-        /*const element = React.createElement("ul",null,
-        React.createElement("li", null,
-        React.createElement("a", { href: "#" }, "Opção 1")),
-        React.createElement("li", null,
-        React.createElement("a", { href: "#" }, "Opção 2"))
-        );*/
-        const element = (<ul><li><a href="#">Opção 1</a></li></ul>);
+        function HelloWorld(props) {
+            return <p>Hello, {props.name} {props.surname}</p>
+        }
+
+        const element = <HelloWorld name="Henrique" surname="Moreira"/>;
         ReactDOM.render(element, document.getElementById("root"));
     </script>
 </body>
