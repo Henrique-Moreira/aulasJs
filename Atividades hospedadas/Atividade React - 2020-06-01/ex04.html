@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>exercicio 4</title>
+</head>
+
+<body>
+    <div id="root">
+        <div id="contador"></div>
+        <button id="btn">Incrementar</button>
+    </div>
+
+    <!-- 4. Crie um componente para atualizar o valor de um contador a ser exibido num parágrafo.
+    OBS: O contador será incrementado ao clicar sobre um botão da interface. -->
+    <script type="text/babel">
+        let counter = 0;
+
+        function RefreshCount() {
+            return (
+                <>
+                <p>Contador: {++counter}</p>
+                </>
+            );
+        }
+
+        $("#btn").click(function () {
+            ReactDOM.render(<RefreshCount/>, document.getElementById("contador"));
+        })
+    </script>
+</body>
+
+</html>

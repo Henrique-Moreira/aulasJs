@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>exercicio 6</title>
+    <style>
+        .box {
+            border: 3px solid rgb(139, 139, 139);
+            background: linear-gradient(90deg, rgba(100,7,162,1) 0%, rgba(253,29,29,1) 50%, rgba(255,149,0,1) 100%);
+            word-wrap: break-word;
+            text-align: center;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>  
+    <div id="root"></div>
+
+    <!-- 6. Crie um componente para exibir uma caixa contendo o nome de uma pessoa, largura e altura
+    informados pelo usuário. OBS: defina uma classe CSS para aplicar borda e cor de fundo na
+    caixa. -->
+    <script type="text/babel">
+
+        function Formata() {
+            return (
+                <div className="box" style={{width:parseInt(prompt("Qual a largura da caixa?")), height:parseInt(prompt("Qual a altura da caixa?"))}}>
+                    <p>{prompt("Qual o seu nome?")}</p>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<Formata />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
