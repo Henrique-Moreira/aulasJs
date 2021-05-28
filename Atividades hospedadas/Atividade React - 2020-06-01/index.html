@@ -11,20 +11,7 @@
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>exercicio 6</title>
-    <style>
-        .box {
-            border: 3px solid rgb(139, 139, 139);
-            background: linear-gradient(90deg, rgba(100,7,162,1) 0%, rgba(253,29,29,1) 50%, rgba(255,149,0,1) 100%);
-            word-wrap: break-word;
-            text-align: center;
-            color: white;
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
+    <title>Inicio</title>
 </head>
 
 <body>  
@@ -35,15 +22,22 @@
     caixa. -->
     <script type="text/babel">
 
-        function Formata() {
+        function Links() {
             return (
-                <div className="box" style={{width:parseInt(prompt("Qual a largura da caixa?")), height:parseInt(prompt("Qual a altura da caixa?"))}}>
-                    <p>{prompt("Qual o seu nome?")}</p>
-                </div>
+                <>
+                <ul>
+                    <li><a href="ex01.html">Exercicio 1</a></li>
+                    <li><a href="ex02.html">Exercicio 2</a></li>
+                    <li><a href="ex03.html">Exercicio 3</a></li>
+                    <li><a href="ex04.html">Exercicio 4</a></li>
+                    <li><a href="ex05.html">Exercicio 5</a></li>
+                    <li><a href="ex06.html">Exercicio 6</a></li>
+                </ul>
+                </>
             );
         }
 
-        ReactDOM.render(<Formata />, document.getElementById("root"));
+        ReactDOM.render(<Links />, document.getElementById("root"));
     </script>
 </body>
 
