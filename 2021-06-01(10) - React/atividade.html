@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    // Passo 1: Usar classe ao invés de função(foi adicionado o método render())
+        // class Time extends React.Component {
+        //     render() {
+        //         return <p>Hora atual: {this.props.date.toLocaleTimeString()}</p>
+        //     }
+        // }
+
+        // function RealTime() {
+        //     const element = <Time date={new Date()} />
+        //     ReactDOM.render(element, document.getElementById("root"));
+        // }
+
+        // setInterval(RealTime, 1000);
+
+
+        // Passo 2: 
+        class Contador extends React.Component {
+            // 1° a ser executado
+            constructor(props) {
+                super(props);
+                this.state = {value: 10}
+            }
+            //2° a ser executado
+            render() {
+                return <p>{this.state.value}</p>
+            }
+            //3° a ser executado
+            componentDidMount() {
+                // se eu usar um: this.SetState() ele vai renderizar novamente.
+             //   this.idTimer = setInterval(()=>this.setState({data: new Date()}), 1000);
+                if(this.state.value > 0) {
+                    this.contadorId = setInterval(()=>{
+                        if(this.state.value > 0) {
+                            this.setState({value: this.state.value-1})
+                        }else {
+                            clearInterval(this.contadorId);
+                        }}
+                    , 1000);
+                }
+            }
+            //ultimo método a ser executado desse componente
+            componentWillUnmount() {
+               clearInterval(this.contadorId);
+            }
+        }
+
+        ReactDOM.render(<Contador/>, document.getElementById("root"));
+    </script>
+</body>
+
+</html

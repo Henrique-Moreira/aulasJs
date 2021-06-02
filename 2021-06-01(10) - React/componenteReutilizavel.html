@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reutilizavel</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    // Passo 1: Usar classe ao invés de função(foi adicionado o método render())
+        // class Time extends React.Component {
+        //     render() {
+        //         return <p>Hora atual: {this.props.date.toLocaleTimeString()}</p>
+        //     }
+        // }
+
+        // function RealTime() {
+        //     const element = <Time date={new Date()} />
+        //     ReactDOM.render(element, document.getElementById("root"));
+        // }
+
+        // setInterval(RealTime, 1000);
+
+
+        // Passo 2: 
+        class Time extends React.Component {
+            // 1° a ser executado
+            constructor(props) {
+                super(props);
+                this.state = {data: new Date()}
+            }
+            //2° a ser executado
+            render() {
+                return <p>Hora atual: {this.state.data.toLocaleTimeString()}</p>
+            }
+            //3° a ser executado
+            componentDidMount() {
+                // se eu usar um: this.SetState() ele vai renderizar novamente.
+                this.idTimer = setInterval(()=>this.setState({data: new Date()}), 1000);
+            }
+            //ultimo método a ser executado desse componente
+            componentWillUnmount() {
+                clearInterval(this.idTimer)
+            }
+        }
+
+        ReactDOM.render(<Time/>, document.getElementById("root"));
+    </script>
+</body>
+
+</html

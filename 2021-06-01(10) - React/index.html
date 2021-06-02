@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    // class ShowName extends React.Component {
+    //     // Método obrigatório ao se criar um componente utilizando o conceito de Classe
+    //     render() {
+    //         return <h1>Nome dentro da função: {props.name}</h1>;
+    //     }
+    // }
+    function ShowName(props) {
+            return <h1>Nome dentro da função: {props.name}</h1>;
+        }
+
+        const element = <ShowName name="Wilton"/>
+        ReactDOM.render(element, document.getElementById("root"));
+
+    </script>
+</body>
+</html
