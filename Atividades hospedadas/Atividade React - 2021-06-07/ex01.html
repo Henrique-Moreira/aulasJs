@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!--1. Crie um componente para exibir um contador regressivo de 10 segundos. Ao chegar em 3
+    segundos a cor da mensagem deverá ficar vermelha até zerar o contador. -->
+    <script type="text/babel">
+
+        class Contador extends React.Component {
+
+            constructor(props) {
+                super(props);
+                this.state = { value: 10 }
+            }
+
+            render() {
+                return <p>{this.state.value}</p>
+            }
+
+            componentDidMount() {
+                if (this.state.value > 0) {
+                    this.contadorId = setInterval(() => {
+                        if (this.state.value > 0) {
+                            this.setState({ value: this.state.value - 1 })
+                            if (this.state.value <= 3) {
+                                document.querySelector("p").style.color = "red";
+                            }
+                        } else {
+                            clearInterval(this.contadorId);
+                        }
+                    }
+                        , 1000);
+                }
+            }
+
+            componentWillUnmount() {
+                clearInterval(this.contadorId);
+            }
+        }
+
+        ReactDOM.render(<Contador />, document.getElementById("root"));
+    </script>
+</body>
+
+</html

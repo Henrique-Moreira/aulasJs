@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #root table,
+        #root th,
+        #root td {
+            border: 2px solid rgb(161, 161, 161);
+            border-collapse: collapse;
+            text-align: center;
+            padding: 5px;
+        }
+
+        #root table thead {
+            background-color: rgb(197, 197, 197);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!--3. Refatore o exercício anterior, porém mova os registros para um arquivo JSON. Sugestão:
+    utilizar os fundamentos desse(view-source:https://wilton-filho.github.io/PFJS-GitHub/promises/Exemplo%2007/) 
+    exercício para fazer a leitura do vetor de objetos. -->
+    <script type="text/babel">
+        var file = "json/users.json";
+        
+        class TabelaUsuarios extends React.Component {
+
+            constructor(props) {
+                super(props);
+            }
+
+            render() {
+                return <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Pontuação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyValues"></tbody>
+                </table>
+            }
+
+            componentDidMount() {
+                fetch(file)
+                    .then(file => file.json())
+                    .then(content => {
+                        var $allUsers = content.users
+                        $allUsers.forEach($user => {
+                            $("#tbodyValues").append($('<tr>')
+                                .append($('<td>').text($user.name))
+                                .append($('<td>').text($user.score)));
+                        });
+                    })
+                    .catch(err => console.log(err))
+            }
+        }
+
+        ReactDOM.render(<TabelaUsuarios />, document.getElementById("root"));
+    </script>
+</body>
+
+</html

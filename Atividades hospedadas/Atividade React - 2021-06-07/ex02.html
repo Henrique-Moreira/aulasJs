@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        #root table,
+        #root th,
+        #root td {
+            border: 2px solid rgb(161, 161, 161);
+            border-collapse: collapse;
+            text-align: center;
+            padding: 5px;
+        }
+        #root table thead {
+            background-color: rgb(197, 197, 197);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!--2. Crie um componente para exibir em uma tabela os nomes e as pontuações dos jogadores do
+    ranking de um jogo qualquer. Para testar esse exercício utilize os seguintes registros: “Wilton
+    Filho” (Pontuação: 10) e “Maria José” (Pontuação: 20). Considere que essas informações estão
+    armazenadas numa estrutura JSON dentro da própria classe. -->
+    <script type="text/babel">
+        // users[0].name => Wilton Filho
+        class TabelaUsuarios extends React.Component {
+
+            constructor(props) {
+                super(props);
+                this.state = { usuarios: [
+                { "name": "Wilton Filho", "score": 10 },
+                { "name": "Maria José", "score": 20 }
+            ] }
+            }
+
+            render() {
+                // return <p>{this.state.value}</p>
+                // console.log(this.state.usuarios[0].name)
+                return <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Pontuação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{this.state.usuarios[0].name}</td>
+                            <td>{this.state.usuarios[0].score}</td>
+                        </tr>
+                        <tr>
+                            <td>{this.state.usuarios[1].name}</td>
+                            <td>{this.state.usuarios[1].score}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            }
+        }
+
+        ReactDOM.render(<TabelaUsuarios />, document.getElementById("root"));
+    </script>
+</body>
+
+</html
