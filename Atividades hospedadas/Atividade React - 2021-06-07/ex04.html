@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!--4. Crie um componente para exibir uma foto qualquer do celular da Samsung, o Galaxy S21, com
+    as seguintes dimensões: 200px (largura) x 300px (altura). Abaixo da foto deverão ser exibidos
+    o nome e o preço do celular, conforme mostrado na figura a seguir. -->
+    <script type="text/babel">
+
+        class GalaxyS21 extends React.Component {
+
+            constructor(props) {
+                super(props);
+                this.state = {
+                    smartphone: [
+                        { "name": "Samsung Galaxy S21", "price": "R$5.399,00", "srcImg": "img/s21Ultra.png" }
+                    ]
+                }
+            }
+
+            render() {
+                const box = {
+                    textAlign: "center",
+                    width: "300px"
+                };
+                const stylePrice = {
+                    color: "blue",
+                    fontSize:"25px"
+                };
+                return (
+                    <div style={box}>
+                    <img src={this.state.smartphone[0].srcImg} alt="Imagem do Smartphone Galaxy S21" />
+                    <h2>{this.state.smartphone[0].name}</h2>
+                    <p style={stylePrice}>{this.state.smartphone[0].price}</p>
+                    </div>
+                    );
+            }
+        }
+
+        ReactDOM.render(<GalaxyS21 />, document.getElementById("root"));
+    </script>
+</body>
+
+</html

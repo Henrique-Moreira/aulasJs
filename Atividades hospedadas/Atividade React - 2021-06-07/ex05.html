@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!--5. Refatore o exercício anterior para criar um slide show automático para exibir três aparelhos
+    celulares. Fique à vontade para escolher tanto as imagens quanto os textos abaixo delas. As
+    imagens e os textos deverão ser alterados a cada intervalo de 1 segundo (loop). -->
+    <script type="text/babel">
+
+        class SmartphonesSlideShow extends React.Component {
+
+            constructor(props) {
+                super(props);
+                this.state = {
+                    smartphones: [
+                        { "name": "Samsung Galaxy S21", "price": "R$4.499,10", "srcImg": "img/s21Ultra.png" },
+                        { "name": "iPhone 12", "price": "R$5.579,00", "srcImg": "img/iphone12.png" },
+                        { "name": "ROG Phone II", "price": "R$4.799,00", "srcImg": "img/rogPhone.jpg" }
+                    ],
+                    index: 0
+                };
+            }
+            render() {
+                const elements = {
+                    textAlign: "center",
+                    width: "300px"
+                };
+                const stylePrice = {
+                    color: "blue",
+                    fontSize:"25px"
+                };
+                return (
+                    <div style={elements}>
+                    <img src={this.state.smartphones[this.state.index].srcImg}/>
+                    <h2>{this.state.smartphones[this.state.index].name}</h2>
+                    <p style={stylePrice}>{this.state.smartphones[this.state.index].price}</p>
+                    </div>
+                    );
+            }
+            componentDidMount() {
+                setInterval(()=>this.slideShow(),1000);
+            }
+            slideShow() {
+                (this.state.index < 2) ? this.setState({index: this.state.index+1}) : this.setState({index: 0})
+            }
+        }
+
+        ReactDOM.render(<SmartphonesSlideShow />, document.getElementById("root"));
+    </script>
+</body>
+
+</html
