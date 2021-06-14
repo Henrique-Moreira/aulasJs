@@ -50,7 +50,7 @@
                     );
             }
             componentDidMount() {
-                setInterval(()=>this.slideShow(),1000);
+                this.timeId = setInterval(()=>this.slideShow(),1000);
             }
             slideShow() {
                 (this.state.index < 2) ? this.setState({index: this.state.index+1}) : this.setState({index: 0})
