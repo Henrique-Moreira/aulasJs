@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!--1. Crie um componente para renderizar uma tela de LOGIN numa página web composta pelos
+    campos de usuário e senha, além de um botão para validar o formulário. O botão “Entrar”
+    deverá verificar se as informações de usuário e senha são diferentes de vazio. -->
+    <script type="text/babel">
+        class Login extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    username:'',
+                    password:''
+                };
+            }
+            checkLogin = () => {
+                if(this.state.username && this.state.password) alert('Login Válido');
+                else alert('Login Invalido');
+            }
+            updateState = (event) => {
+                this.setState({[event.target.name]: event.target.value});
+            }
+            render() {
+                return (
+                    <div>
+                        <h2>Login</h2>
+                    <form>
+                        <input type="text" placeholder="Usuário" name="username" value={this.state.username} onChange={this.updateState}/><br />
+                        <input type="text" placeholder="Senha" name="password" value={this.state.password} onChange={this.updateState}/><br />
+                        <button onClick={this.checkLogin}>Entrar</button>
+                    </form>
+                </div>
+                );
+            }
+            componentDidMount() { }
+            componentWillUnmount() { }
+        }
+        ReactDOM.render(<Login />, document.getElementById("root"));
+    </script>
+</body>
+
+</html

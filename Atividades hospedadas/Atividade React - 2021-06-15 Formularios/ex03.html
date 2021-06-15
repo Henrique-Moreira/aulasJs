@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!--3. Refatore o exercício anterior (crie uma nova página) e adiciona as outras operações aritméticas
+    básicas da matemática. -->
+    <script type="text/babel">
+        class Soma extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    a: '',
+                    b: '',
+                    c: ''
+                };
+            }
+            checkEmpty = () => {
+                if(this.state.a && this.state.b) this.calcula(event);
+                else alert('Preencha todos os campos');
+            }
+
+            calcula = (event) => {
+                switch(event.target.value) {
+                case '+':
+                this.setState(
+                    {
+                        c:parseInt(this.state.a) + parseInt(this.state.b)
+                    });
+                break;
+                case '-':
+                this.setState(
+                    {
+                        c:parseInt(this.state.a) - parseInt(this.state.b)
+                    });
+                break;
+                case '*':
+                this.setState(
+                    {
+                        c:parseInt(this.state.a) * parseInt(this.state.b)
+                    });
+                break;
+                case '/':
+                if(this.state.b == 0) {                             
+                    alert("Não existe divisão por 0!");                             
+                    return;
+                }else {
+                    this.setState(
+                        {
+                            c:parseInt(this.state.a) / parseInt(this.state.b)
+                        });
+                    }
+                break;
+                }
+            }
+            updateState = (event) => {
+                this.setState(
+                    {
+                        [event.target.name]: event.target.value
+                    }
+                );
+            }
+            render() {
+                return (
+                    <div>
+                        <h2>Calculadora</h2>
+                        <form>
+                            <input type="text" placeholder="Valor A" name="a" value={this.state.a} onChange={this.updateState} /><br />
+                            <input type="text" placeholder="Valor B" name="b" value={this.state.b} onChange={this.updateState} /><br />
+                            <input type="button" value="+" onClick={this.checkEmpty}/>
+                            <input type="button" value="-" onClick={this.checkEmpty}/>
+                            <input type="button" value="*" onClick={this.checkEmpty}/>
+                            <input type="button" value="/" onClick={this.checkEmpty}/><br />
+                            <input type="text" placeholder="Resultado" name="c" value={this.state.c} onChange={this.updateState} /><br />
+                        </form>
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(<Soma />, document.getElementById("root"));
+    </script>
+</body>
+
+</html

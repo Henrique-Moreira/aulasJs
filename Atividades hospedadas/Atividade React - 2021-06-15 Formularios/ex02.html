@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!--2. Crie um componente para renderizar uma calculadora numa página web contendo o mesmo
+    layout mostrado na figura abaixo. A calculadora deverá calcular a soma dos dois primeiros
+    valores informados nas duas primeiras páginas após clicar sobre o botão “Somar”. Fique à
+    vontade para realizar as validações dos dois primeiros campos (!=vazio, !=números, etc.). -->
+    <script type="text/babel">
+        class Soma extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    a: '',
+                    b: '',
+                    c: ''
+                };
+            }
+            checkEmpty = () => {
+                if(this.state.a && this.state.b) this.calculaSoma();
+                else alert('Preencha todos os campos');
+            }
+
+            calculaSoma = () => {
+                this.setState(
+                    {
+                        c:parseInt(this.state.a) + parseInt(this.state.b)
+                    })
+            }
+            updateState = (event) => {
+                this.setState(
+                    {
+                        [event.target.name]: event.target.value
+                    }
+                );
+            }
+            render() {
+                return (
+                    <div>
+                        <h2>Calculadora</h2>
+                        <form>
+                            <input type="text" placeholder="Valor A" name="a" value={this.state.a} onChange={this.updateState} /><br />
+                            <input type="text" placeholder="Valor B" name="b" value={this.state.b} onChange={this.updateState} /><br />
+                            <input type="button" value="Somar" onClick={this.checkEmpty}/><br />
+                            <input type="text" placeholder="Resultado" name="c" value={this.state.c} onChange={this.updateState} /><br />
+                        </form>
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(<Soma />, document.getElementById("root"));
+    </script>
+</body>
+
+</html
