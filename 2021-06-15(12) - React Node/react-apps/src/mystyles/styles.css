@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial;
+}
+
+.converterBox {
+    border : 2px solid rgb(95, 57, 57);
+    width: 300px;
+    border-radius: 10px;
+    margin: 20px;
+    	box-shadow: inset 0 0 15px 5px #6b2624;
+    padding: 10px;
+    text-align: center;
+    float: left;
+}
+
+.converterBox h2 {
+    text-align: center;
+    color: rgb(59, 59, 59);
+}
+
+.converterBox button {
+    background-color: #6b2624;
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: right;
+    margin: 10px;
+}
+
+.converterBox input[type=text] {
+    background-color: #6b2624;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.converterBox p {
+    text-align: left;
+    font-weight: bold;
+}
+
+header {
+    background-color: rgb(59, 59, 59);
+}
+
+header {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    padding: 15px;
+}
