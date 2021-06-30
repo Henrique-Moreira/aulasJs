@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.5em;
+}
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    background-color: orangered;
+}
+header nav ul li .menu:link, header nav ul li .menu:visited {
+    display: inline-block;
+    text-decoration: none;
+    color:white;
+    padding:15px 20px;
+    width: 100%;
+}
+header nav ul li .menu:hover {
+    background-color: white;
+    color: orangered;
+} 
+.introSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+h1 {
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    font-size: 45px;
+}
+.introSectionPortfolio {
+    background-color: rgb(2, 2, 114);
+}
+.introSection > div {
+    margin: 20px;
+    background-color:white;
+    padding: 30px;
+    border-radius: 30px;
+    width: 1200px;
+    border: 5px solid orangered;
+}
+.container {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 1200px;
+    margin:auto;
+    text-align: center;
+    padding: 30px;
+}
+.container p {
+    text-align: justify;
+    padding: 20px;
+}
+.row {
+    flex-direction: row;
+}
+.column {
+    flex-direction: column;
+}
+.left {
+    text-align: left;
+    padding-left:20px;
+}
+.left p {
+    padding-left:0px;
+}
+footer {
+    background-color: rgb(160, 48, 7);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
